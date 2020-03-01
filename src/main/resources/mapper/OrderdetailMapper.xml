@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucien.dao.OrderdetailMapper">
+  <resultMap id="BaseResultMap" type="com.lucien.po.Orderdetail">
+    <id column="orderDetail_id" jdbcType="INTEGER" property="orderdetailId" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="good_id" jdbcType="INTEGER" property="goodId" />
+    <result column="orderDetail_num" jdbcType="INTEGER" property="orderdetailNum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    orderDetail_id, order_id, good_id, orderDetail_num
+  </sql>
+  <select id="selectByExample" parameterType="com.lucien.po.OrderdetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderdetail
+    where orderDetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderdetail
+    where orderDetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lucien.po.OrderdetailExample">
+    delete from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lucien.po.Orderdetail">
+    insert into orderdetail (orderDetail_id, order_id, good_id, 
+      orderDetail_num)
+    values (#{orderdetailId,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{goodId,jdbcType=INTEGER}, 
+      #{orderdetailNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lucien.po.Orderdetail">
+    insert into orderdetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderdetailId != null">
+        orderDetail_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="goodId != null">
+        good_id,
+      </if>
+      <if test="orderdetailNum != null">
+        orderDetail_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderdetailId != null">
+        #{orderdetailId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodId != null">
+        #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="orderdetailNum != null">
+        #{orderdetailNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lucien.po.OrderdetailExample" resultType="java.lang.Long">
+    select count(*) from orderdetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update orderdetail
+    <set>
+      <if test="record.orderdetailId != null">
+        orderDetail_id = #{record.orderdetailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodId != null">
+        good_id = #{record.goodId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderdetailNum != null">
+        orderDetail_num = #{record.orderdetailNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update orderdetail
+    set orderDetail_id = #{record.orderdetailId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=VARCHAR},
+      good_id = #{record.goodId,jdbcType=INTEGER},
+      orderDetail_num = #{record.orderdetailNum,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Orderdetail">
+    update orderdetail
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodId != null">
+        good_id = #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="orderdetailNum != null">
+        orderDetail_num = #{orderdetailNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where orderDetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Orderdetail">
+    update orderdetail
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      good_id = #{goodId,jdbcType=INTEGER},
+      orderDetail_num = #{orderdetailNum,jdbcType=INTEGER}
+    where orderDetail_id = #{orderdetailId,jdbcType=INTEGER}
+  </update>
+</mapper>
