@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Category;
-import com.lucien.po.CategoryExample;
+import com.lucien.model.entity.Category;
+import com.lucien.model.entity.CategoryExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

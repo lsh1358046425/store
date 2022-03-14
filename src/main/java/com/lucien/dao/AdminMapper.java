@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Admin;
-import com.lucien.po.AdminExample;
+import com.lucien.model.entity.Admin;
+import com.lucien.model.entity.AdminExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.GoodMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.Good">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.Good">
     <id column="good_id" jdbcType="INTEGER" property="goodId" />
     <result column="good_name" jdbcType="VARCHAR" property="goodName" />
     <result column="good_price" jdbcType="DOUBLE" property="goodPrice" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     good_id, good_name, good_price, good_picture, category_id
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.GoodExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.GoodExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -96,19 +96,19 @@
     delete from good
     where good_id = #{goodId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.GoodExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.GoodExample">
     delete from good
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.Good">
+  <insert id="insert" parameterType="com.lucien.model.entity.Good">
     insert into good (good_id, good_name, good_price, 
       good_picture, category_id)
     values (#{goodId,jdbcType=INTEGER}, #{goodName,jdbcType=VARCHAR}, #{goodPrice,jdbcType=DOUBLE}, 
       #{goodPicture,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.Good">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.Good">
     insert into good
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="goodId != null">
@@ -145,7 +145,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.GoodExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.GoodExample" resultType="java.lang.Long">
     select count(*) from good
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -185,7 +185,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Good">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.Good">
     update good
     <set>
       <if test="goodName != null">
@@ -203,7 +203,7 @@
     </set>
     where good_id = #{goodId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Good">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.Good">
     update good
     set good_name = #{goodName,jdbcType=VARCHAR},
       good_price = #{goodPrice,jdbcType=DOUBLE},

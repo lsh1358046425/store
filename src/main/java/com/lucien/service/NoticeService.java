@@ -1,7 +1,7 @@
 package com.lucien.service;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Notice;
+import com.lucien.model.entity.Notice;
 
 public interface NoticeService {
     PageInfo<Notice> queryNoticeByPage(int pageNum, int pageSize);

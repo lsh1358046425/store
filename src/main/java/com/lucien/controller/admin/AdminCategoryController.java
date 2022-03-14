@@ -1,9 +1,9 @@
 package com.lucien.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Category;
-import com.lucien.po.JsonData;
-import com.lucien.po.LayUITableData;
+import com.lucien.model.entity.Category;
+import com.lucien.model.entity.JsonData;
+import com.lucien.model.entity.LayUITableData;
 import com.lucien.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,6 @@ import java.util.List;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/3 20:44
  */
 

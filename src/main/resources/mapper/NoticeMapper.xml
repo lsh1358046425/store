@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.NoticeMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.Notice">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.Notice">
     <id column="notice_id" jdbcType="INTEGER" property="noticeId" />
     <result column="notice_title" jdbcType="VARCHAR" property="noticeTitle" />
     <result column="notice_content" jdbcType="VARCHAR" property="noticeContent" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     notice_id, notice_title, notice_content, notice_time, notice_status
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.NoticeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.NoticeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from notice
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.NoticeExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.NoticeExample">
     delete from notice
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.Notice">
+  <insert id="insert" parameterType="com.lucien.model.entity.Notice">
     insert into notice (notice_id, notice_title, notice_content, 
       notice_time, notice_status)
     values (#{noticeId,jdbcType=INTEGER}, #{noticeTitle,jdbcType=VARCHAR}, #{noticeContent,jdbcType=VARCHAR}, 
       #{noticeTime,jdbcType=TIMESTAMP}, #{noticeStatus,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.Notice">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.Notice">
     insert into notice
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="noticeId != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.NoticeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.NoticeExample" resultType="java.lang.Long">
     select count(*) from notice
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Notice">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.Notice">
     update notice
     <set>
       <if test="noticeTitle != null">
@@ -200,7 +200,7 @@
     </set>
     where notice_id = #{noticeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Notice">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.Notice">
     update notice
     set notice_title = #{noticeTitle,jdbcType=VARCHAR},
       notice_content = #{noticeContent,jdbcType=VARCHAR},

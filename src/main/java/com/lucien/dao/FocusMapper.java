@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Focus;
-import com.lucien.po.FocusExample;
+import com.lucien.model.entity.Focus;
+import com.lucien.model.entity.FocusExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

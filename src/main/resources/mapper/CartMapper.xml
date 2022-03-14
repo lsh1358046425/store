@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.CartMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.Cart">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.Cart">
     <id column="cart_id" jdbcType="INTEGER" property="cartId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="good_id" jdbcType="INTEGER" property="goodId" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     cart_id, user_id, good_id, cart_num
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.CartExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.CartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,19 +92,19 @@
     delete from cart
     where cart_id = #{cartId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.CartExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.CartExample">
     delete from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.Cart">
+  <insert id="insert" parameterType="com.lucien.model.entity.Cart">
     insert into cart (cart_id, user_id, good_id, 
       cart_num)
     values (#{cartId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{goodId,jdbcType=INTEGER}, 
       #{cartNum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.Cart">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.Cart">
     insert into cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cartId != null">
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.CartExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.CartExample" resultType="java.lang.Long">
     select count(*) from cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Cart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.Cart">
     update cart
     <set>
       <if test="userId != null">
@@ -186,7 +186,7 @@
     </set>
     where cart_id = #{cartId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Cart">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.Cart">
     update cart
     set user_id = #{userId,jdbcType=INTEGER},
       good_id = #{goodId,jdbcType=INTEGER},

@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Notice;
-import com.lucien.po.NoticeExample;
+import com.lucien.model.entity.Notice;
+import com.lucien.model.entity.NoticeExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

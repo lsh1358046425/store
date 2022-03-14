@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.User;
-import com.lucien.po.UserExample;
+import com.lucien.model.entity.User;
+import com.lucien.model.entity.UserExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

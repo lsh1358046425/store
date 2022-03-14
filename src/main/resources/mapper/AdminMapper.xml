@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.Admin">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.Admin">
     <id column="admin_name" jdbcType="VARCHAR" property="adminName" />
     <result column="admin_password" jdbcType="VARCHAR" property="adminPassword" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     admin_name, admin_password
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.AdminExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.AdminExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,17 +90,17 @@
     delete from admin
     where admin_name = #{adminName,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.AdminExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.AdminExample">
     delete from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.Admin">
+  <insert id="insert" parameterType="com.lucien.model.entity.Admin">
     insert into admin (admin_name, admin_password)
     values (#{adminName,jdbcType=VARCHAR}, #{adminPassword,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.Admin">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.Admin">
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="adminName != null">
@@ -119,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.AdminExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.AdminExample" resultType="java.lang.Long">
     select count(*) from admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -147,7 +147,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Admin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.Admin">
     update admin
     <set>
       <if test="adminPassword != null">
@@ -156,7 +156,7 @@
     </set>
     where admin_name = #{adminName,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Admin">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.Admin">
     update admin
     set admin_password = #{adminPassword,jdbcType=VARCHAR}
     where admin_name = #{adminName,jdbcType=VARCHAR}

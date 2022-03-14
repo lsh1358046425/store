@@ -1,13 +1,13 @@
 package com.lucien.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Category;
-import com.lucien.po.Good;
-import com.lucien.po.JsonData;
-import com.lucien.po.LayUITableData;
+import com.lucien.model.entity.Category;
+import com.lucien.model.entity.Good;
+import com.lucien.model.entity.JsonData;
+import com.lucien.model.entity.LayUITableData;
 import com.lucien.service.CategoryService;
 import com.lucien.service.GoodService;
-import com.lucien.vo.ListGood;
+import com.lucien.model.vo.ListGoodVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +27,6 @@ import java.util.UUID;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/3 20:18
  */
 
@@ -106,19 +105,19 @@ public class AdminGoodController {
         LayUITableData layUIData = new LayUITableData();
         PageInfo<Good> pageInfo = goodService.queryGoodByPage(page, limit, keyword);
         List<Good> goods = pageInfo.getList();  //获得商品列表
-        List<ListGood> listGoods = new ArrayList<>();   //存放商品VO
+        List<ListGoodVO> listGoodVOS = new ArrayList<>();   //存放商品VO
         //循环把每个PO转化成VO
         for (Good good : goods) {
-            ListGood listGood = new ListGood();
-            listGood.setGoodId(good.getGoodId());
-            listGood.setGoodName(good.getGoodName());
-            listGood.setGoodPicture(good.getGoodPicture());
-            listGood.setGoodPrice(good.getGoodPrice());
-            listGood.setCategoryName(categoryService.queryCategoryNameByCategoryId(good.getCategoryId()).getCategoryName());  //查询分类并获取分类名存入商品VO
-            listGoods.add(listGood);    //把商品VO加入商品VO列表
+            ListGoodVO listGoodVO = new ListGoodVO();
+            listGoodVO.setGoodId(good.getGoodId());
+            listGoodVO.setGoodName(good.getGoodName());
+            listGoodVO.setGoodPicture(good.getGoodPicture());
+            listGoodVO.setGoodPrice(good.getGoodPrice());
+            listGoodVO.setCategoryName(categoryService.queryCategoryNameByCategoryId(good.getCategoryId()).getCategoryName());  //查询分类并获取分类名存入商品VO
+            listGoodVOS.add(listGoodVO);    //把商品VO加入商品VO列表
         }
         long count = pageInfo.getTotal();
-        layUIData.setData(listGoods);
+        layUIData.setData(listGoodVOS);
         layUIData.setCount(count);
         layUIData.setCode(0);
         return layUIData;

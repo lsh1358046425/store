@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Orders;
-import com.lucien.po.OrdersExample;
+import com.lucien.model.entity.Orders;
+import com.lucien.model.entity.OrdersExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

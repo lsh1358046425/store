@@ -1,12 +1,12 @@
 package com.lucien.controller.before;
 
-import com.lucien.po.Cart;
-import com.lucien.po.Good;
-import com.lucien.po.JsonData;
-import com.lucien.po.User;
+import com.lucien.model.entity.Cart;
+import com.lucien.model.entity.Good;
+import com.lucien.model.entity.JsonData;
+import com.lucien.model.entity.User;
 import com.lucien.service.CartService;
 import com.lucien.service.GoodService;
-import com.lucien.vo.CartGood;
+import com.lucien.model.vo.CartGoodVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,6 @@ import java.util.Map;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/19 18:01
  */
 
@@ -38,20 +37,20 @@ public class CartController {
     public String checkout(@RequestParam List<Integer> goodIds, HttpSession session, Map<String, Object> map){
         User user = (User) session.getAttribute("user");
         int userId = user.getUserId();
-        List<CartGood> goods = new ArrayList<>();
+        List<CartGoodVO> goods = new ArrayList<>();
         for(int goodId : goodIds){
-            CartGood cartGood = new CartGood();
+            CartGoodVO cartGoodVO = new CartGoodVO();
             Cart cart = cartService.queryCartByUserIdAndGoodId(userId, goodId);
             Good good = goodService.queryGoodByGoodId(cart.getGoodId());
-            cartGood.setGoodId(good.getGoodId());
-            cartGood.setGoodName(good.getGoodName());
-            cartGood.setGoodPrice(good.getGoodPrice());
-            cartGood.setGoodPicture(good.getGoodPicture());
-            cartGood.setCartNum(cart.getCartNum());
+            cartGoodVO.setGoodId(good.getGoodId());
+            cartGoodVO.setGoodName(good.getGoodName());
+            cartGoodVO.setGoodPrice(good.getGoodPrice());
+            cartGoodVO.setGoodPicture(good.getGoodPicture());
+            cartGoodVO.setCartNum(cart.getCartNum());
             DecimalFormat decimalFormat = new DecimalFormat("#.00");
             double amount = Double.parseDouble(decimalFormat.format(good.getGoodPrice() * cart.getCartNum()));
-            cartGood.setCartAmount(amount);
-            goods.add(cartGood);
+            cartGoodVO.setCartAmount(amount);
+            goods.add(cartGoodVO);
         }
         map.put("goods", goods);
         return "before/checkout";
@@ -61,19 +60,19 @@ public class CartController {
     public String cart(Map<String, Object> map, HttpSession session){
         User user = (User) session.getAttribute("user");
         List<Cart> carts = cartService.queryCartsByUserId(user.getUserId());
-        List<CartGood> goods = new ArrayList<>();
+        List<CartGoodVO> goods = new ArrayList<>();
         for(Cart cart : carts){
-            CartGood cartGood = new CartGood();
+            CartGoodVO cartGoodVO = new CartGoodVO();
             Good good = goodService.queryGoodByGoodId(cart.getGoodId());
-            cartGood.setGoodId(good.getGoodId());
-            cartGood.setGoodName(good.getGoodName());
-            cartGood.setGoodPrice(good.getGoodPrice());
-            cartGood.setGoodPicture(good.getGoodPicture());
-            cartGood.setCartNum(cart.getCartNum());
+            cartGoodVO.setGoodId(good.getGoodId());
+            cartGoodVO.setGoodName(good.getGoodName());
+            cartGoodVO.setGoodPrice(good.getGoodPrice());
+            cartGoodVO.setGoodPicture(good.getGoodPicture());
+            cartGoodVO.setCartNum(cart.getCartNum());
             DecimalFormat decimalFormat = new DecimalFormat("#.00");
             double amount = Double.parseDouble(decimalFormat.format(good.getGoodPrice() * cart.getCartNum()));
-            cartGood.setCartAmount(amount);
-            goods.add(cartGood);
+            cartGoodVO.setCartAmount(amount);
+            goods.add(cartGoodVO);
         }
         map.put("goods", goods);
         return "before/cart";
@@ -86,7 +85,7 @@ public class CartController {
         JsonData jsonData = new JsonData();
         User user = (User) session.getAttribute("user");
         int userId = user.getUserId();
-        int count = 0;
+        int count;
 
         Cart cart = cartService.queryCartByUserIdAndGoodId(userId, goodId);
         if (cart != null){

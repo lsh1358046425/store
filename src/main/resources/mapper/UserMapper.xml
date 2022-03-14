@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.User">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.User">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     user_id, user_name, user_password, user_email, user_status
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.UserExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.User">
+  <insert id="insert" parameterType="com.lucien.model.entity.User">
     insert into user (user_id, user_name, user_password, 
       user_email, user_status)
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{userEmail,jdbcType=VARCHAR}, #{userStatus,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.User">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.User">
     update user
     <set>
       <if test="userName != null">
@@ -200,7 +200,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.User">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.User">
     update user
     set user_name = #{userName,jdbcType=VARCHAR},
       user_password = #{userPassword,jdbcType=VARCHAR},

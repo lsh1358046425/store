@@ -1,6 +1,6 @@
 package com.lucien.service;
 
-import com.lucien.po.Cart;
+import com.lucien.model.entity.Cart;
 
 import java.util.List;
 

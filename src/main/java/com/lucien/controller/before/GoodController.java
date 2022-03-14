@@ -1,8 +1,8 @@
 package com.lucien.controller.before;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Category;
-import com.lucien.po.Good;
+import com.lucien.model.entity.Category;
+import com.lucien.model.entity.Good;
 import com.lucien.service.CategoryService;
 import com.lucien.service.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import java.util.Map;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/18 14:47
  */
 

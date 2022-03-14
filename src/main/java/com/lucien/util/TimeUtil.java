@@ -6,7 +6,6 @@ import java.util.Date;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/24 19:09
  */
 public class TimeUtil {

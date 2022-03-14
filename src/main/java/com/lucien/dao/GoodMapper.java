@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Good;
-import com.lucien.po.GoodExample;
+import com.lucien.model.entity.Good;
+import com.lucien.model.entity.GoodExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

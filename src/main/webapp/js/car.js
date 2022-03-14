@@ -177,7 +177,7 @@ layui.define(['layer', 'jquery'],function(exports){
                                 contentType: "application/json;charset=utf-8",
                                 data: JSON.stringify(goodIds),
                                 success: function (data) {
-                                    if (data.status > 1) {
+                                    if (data.status >= 1) {
                                         layer.close(index)
                                         for (var i = 0; i < uls.length; i++) {
                                             var input = uls[i].getElementsByTagName('input')[0];

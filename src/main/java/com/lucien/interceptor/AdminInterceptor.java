@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/11 16:48
  */
 public class AdminInterceptor implements HandlerInterceptor {

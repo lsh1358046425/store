@@ -1,6 +1,6 @@
 package com.lucien.interceptor;
 
-import com.lucien.po.User;
+import com.lucien.model.entity.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/19 20:58
  */
 public class UserInterceptor implements HandlerInterceptor {

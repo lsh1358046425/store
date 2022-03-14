@@ -1,13 +1,13 @@
 package com.lucien.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.*;
+import com.lucien.model.entity.*;
 import com.lucien.service.GoodService;
 import com.lucien.service.OrdersService;
 import com.lucien.service.UserService;
 import com.lucien.util.TimeUtil;
-import com.lucien.vo.OrderDetailVO;
-import com.lucien.vo.OrderVO;
+import com.lucien.model.vo.OrderDetailVO;
+import com.lucien.model.vo.OrderVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,6 @@ import java.util.Map;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/8 21:05
  */
 

@@ -1,7 +1,7 @@
 package com.lucien.interceptor;
 
-import com.lucien.po.Cart;
-import com.lucien.po.User;
+import com.lucien.model.entity.Cart;
+import com.lucien.model.entity.User;
 import com.lucien.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/20 23:05
  */
 public class CartInterceptor implements HandlerInterceptor {

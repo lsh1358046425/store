@@ -25,6 +25,8 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`admin_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `store`.`admin`(`admin_name`, `admin_password`) VALUES ('admin', 'ba858a7d5ae115fa8f937ffbea53b360');
+
 -- ----------------------------
 -- Table structure for cart
 -- ----------------------------
@@ -50,7 +52,7 @@ CREATE TABLE `category` (
   `category_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `category_hot` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for focus
@@ -81,7 +83,7 @@ CREATE TABLE `good` (
   PRIMARY KEY (`good_id`),
   KEY `good_category_id` (`category_id`) USING BTREE,
   CONSTRAINT `good_category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for notice
@@ -94,7 +96,7 @@ CREATE TABLE `notice` (
   `notice_time` datetime DEFAULT NULL,
   `notice_status` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`notice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for orderdetail
@@ -109,7 +111,7 @@ CREATE TABLE `orderdetail` (
   KEY `orderdetail_order_id` (`order_id`) USING BTREE,
   KEY `orderdetail_good_id` (`good_id`) USING BTREE,
   CONSTRAINT `orderDetail_good_id` FOREIGN KEY (`good_id`) REFERENCES `good` (`good_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for orders
@@ -138,4 +140,7 @@ CREATE TABLE `user` (
   `user_email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `store`.`user`(`user_id`, `user_name`, `user_password`, `user_email`, `user_status`) VALUES (1, 'user', 'ba858a7d5ae115fa8f937ffbea53b360', NULL, 1);
+

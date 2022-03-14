@@ -5,7 +5,6 @@ import org.springframework.util.DigestUtils;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/11 12:46
  */
 public class MD5Util {

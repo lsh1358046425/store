@@ -1,8 +1,8 @@
 package com.lucien.service;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Orderdetail;
-import com.lucien.po.Orders;
+import com.lucien.model.entity.Orderdetail;
+import com.lucien.model.entity.Orders;
 
 import java.util.Date;
 import java.util.List;

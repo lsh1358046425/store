@@ -108,7 +108,7 @@
                 <div class="th th-chk">
                     <div class="select-all">
                         <div class="cart-checkbox">
-                            <input class="check-all check" id="" type="checkbox"  value="true">
+                            <input class="check-all check" type="checkbox"  value="true">
                         </div>
                         <label>&nbsp;&nbsp;已选<span class="Selected-pieces">0</span>件</label>
                     </div>

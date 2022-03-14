@@ -1,14 +1,11 @@
 package com.lucien.controller.before;
 
-import com.lucien.po.Admin;
-import com.lucien.po.JsonData;
-import com.lucien.po.LayUITableData;
-import com.lucien.po.User;
+import com.lucien.model.entity.JsonData;
+import com.lucien.model.entity.User;
 import com.lucien.service.UserService;
 import com.lucien.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +16,6 @@ import java.util.List;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/19 19:37
  */
 

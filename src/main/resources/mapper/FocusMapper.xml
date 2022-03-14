@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lucien.dao.FocusMapper">
-  <resultMap id="BaseResultMap" type="com.lucien.po.Focus">
+  <resultMap id="BaseResultMap" type="com.lucien.model.entity.Focus">
     <id column="focus_id" jdbcType="INTEGER" property="focusId" />
     <result column="good_id" jdbcType="INTEGER" property="goodId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     focus_id, good_id, user_id, focus_time
   </sql>
-  <select id="selectByExample" parameterType="com.lucien.po.FocusExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lucien.model.entity.FocusExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,19 +92,19 @@
     delete from focus
     where focus_id = #{focusId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lucien.po.FocusExample">
+  <delete id="deleteByExample" parameterType="com.lucien.model.entity.FocusExample">
     delete from focus
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lucien.po.Focus">
+  <insert id="insert" parameterType="com.lucien.model.entity.Focus">
     insert into focus (focus_id, good_id, user_id, 
       focus_time)
     values (#{focusId,jdbcType=INTEGER}, #{goodId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
       #{focusTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lucien.po.Focus">
+  <insert id="insertSelective" parameterType="com.lucien.model.entity.Focus">
     insert into focus
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="focusId != null">
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lucien.po.FocusExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lucien.model.entity.FocusExample" resultType="java.lang.Long">
     select count(*) from focus
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.po.Focus">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lucien.model.entity.Focus">
     update focus
     <set>
       <if test="goodId != null">
@@ -186,7 +186,7 @@
     </set>
     where focus_id = #{focusId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lucien.po.Focus">
+  <update id="updateByPrimaryKey" parameterType="com.lucien.model.entity.Focus">
     update focus
     set good_id = #{goodId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},

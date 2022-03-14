@@ -1,12 +1,12 @@
 package com.lucien.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.JsonData;
-import com.lucien.po.LayUITableData;
-import com.lucien.po.Notice;
+import com.lucien.model.entity.JsonData;
+import com.lucien.model.entity.LayUITableData;
+import com.lucien.model.entity.Notice;
 import com.lucien.service.NoticeService;
 import com.lucien.util.TimeUtil;
-import com.lucien.vo.NoticeVO;
+import com.lucien.model.vo.NoticeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,6 @@ import java.util.Map;
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/24 18:27
  */
 

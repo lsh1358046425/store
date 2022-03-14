@@ -1,8 +1,8 @@
 package com.lucien.service;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Category;
-import com.lucien.po.Good;
+import com.lucien.model.entity.Category;
+import com.lucien.model.entity.Good;
 
 import java.util.List;
 

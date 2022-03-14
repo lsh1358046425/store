@@ -1,6 +1,6 @@
 package com.lucien.service;
 
-import com.lucien.po.Admin;
+import com.lucien.model.entity.Admin;
 
 public interface AdminService {
     Admin queryAdminByAdminName(String adminName);

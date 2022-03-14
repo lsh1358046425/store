@@ -1,7 +1,7 @@
 package com.lucien.controller.admin;
 
-import com.lucien.po.Admin;
-import com.lucien.po.JsonData;
+import com.lucien.model.entity.Admin;
+import com.lucien.model.entity.JsonData;
 import com.lucien.service.AdminService;
 import com.lucien.util.MD5Util;
 import com.lucien.util.TimeUtil;
@@ -12,14 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 /**
  * @author Lucien
  * @version 1.0
- * @description TODO
  * @date 2019/5/11 12:02
  */
 

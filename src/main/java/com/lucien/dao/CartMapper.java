@@ -1,7 +1,7 @@
 package com.lucien.dao;
 
-import com.lucien.po.Cart;
-import com.lucien.po.CartExample;
+import com.lucien.model.entity.Cart;
+import com.lucien.model.entity.CartExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

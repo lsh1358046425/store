@@ -1,7 +1,7 @@
 package com.lucien.service;
 
 import com.github.pagehelper.PageInfo;
-import com.lucien.po.Category;
+import com.lucien.model.entity.Category;
 
 import java.util.List;
 
